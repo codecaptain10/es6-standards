@@ -190,6 +190,39 @@ console.log(result); // 9 items cost $80.91.
 
 
 /* --------------------------------------- Object Literal Syntax Extensions --------------------------------------- */
+//Object property initializer shorthand
+/*ES6 allows you to eliminate the duplication when a property of an object is the same as the local variable name by including the name without a colon and value.*/
+function createMachine(name, status) {
+  return {
+    name,
+    status
+  };
+}
+
+//Computed property name
+/*In ES6, the computed property name is a part of the object literal syntax, and it uses the square bracket notation. */
+let prefix = 'machine';
+let machine = {
+  [prefix + ' name']: 'server',
+  [prefix + ' hours']: 10000
+};
+
+console.log(machine['machine name']); // server
+console.log(machine['machine hours']); // 10000
+
+//Concise method syntax
+/*ES6 makes the syntax for making a method of the object literal more succinct by removing the colon (:) and the function keyword. */
+let server = {
+  name: 'Server',
+  restart() {
+    console.log("The " + this.name + " is restarting...");
+  },
+  'starting up'() {
+    console.log("The " + this.name + " is starting up!");
+  }
+};
+
+server['starting up']();
 
 
 /* --------------------------------------- Default Parameters --------------------------------------- */
