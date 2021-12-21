@@ -126,6 +126,67 @@ The let variables have the same execution phase as the var variables.
 
 
 /* --------------------------------------- Template literals --------------------------------------- */
+//Intro
+/*
+- A multiline string: a string that can span multiple lines.
+- String formatting: the ability to substitute part of the string for the values of variables or expressions. This feature is also called string interpolation.
+- HTML escaping: the ability to transform a string so that it is safe to include in HTML.
+*/
+let simple = `This is a template literal`;
+
+//Basic syntax
+let str = `Template literal in ES6`;
+
+console.log(str); // Template literal in ES6
+console.log(str.length); // 23
+console.log(typeof str); // string
+
+let {
+    title,
+    excerpt,
+    body,
+    tags
+} = post;
+
+let postHtml = `<article>
+<header>
+    <h1>${title}</h1>
+</header>
+<section>
+    <div>${excerpt}</div>
+    <div>${body}</div>
+</section>
+<footer>
+    <ul>
+      ${tags.map(tag => `<li>${tag}</li>`).join('\n      ')}
+    </ul>
+</footer>`;
+
+//Variable and expression substitutions
+let firstName = 'John';
+let lastName = 'Doe';
+
+let greeting = `Hi ${firstName}, ${lastName}`;
+console.log(greeting); // Hi John, Doe
+
+//tagged templates
+function format(literals, ...substitutions) {
+  let result = '';
+
+  for (let i = 0; i < substitutions.length; i++) {
+    result += literals[i];
+    result += substitutions[i];
+  }
+  // add the last literal
+  result += literals[literals.length - 1];
+  return result;
+}
+
+let quantity = 9,
+  priceEach = 8.99,
+  result = format `${quantity} items cost $${(quantity * priceEach).toFixed(2)}.`;
+
+console.log(result); // 9 items cost $80.91.
 
 
 /* --------------------------------------- Object Literal Syntax Extensions --------------------------------------- */
