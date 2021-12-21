@@ -64,6 +64,65 @@ The let variables have the same execution phase as the var variables.
 */
 
 /* --------------------------------------- JavaScript const --------------------------------------- */
+//Intro
+/*
+- Like the let keyword, the const keyword declares blocked-scope variables. However, the block-scoped variables declared by the const keyword can’t be reassigned.
+- Variables created by the const keyword are “immutable”. In other words, you can’t reassign them to different values.
+    const RATE = 0.1;
+    RATE = 0.2; // TypeError
+- Unlike the let keyword, you need to initialize the value to the variable declared by the const keyword.
+ */
+//const and Objects 
+/*
+- The const keyword ensures that the variable it creates is read-only. However, it doesn’t mean that the actual value to which the const variable reference is immutable. 
+    const person = { age: 20 };
+    person.age = 30; // OK
+    console.log(person.age); // 30
+    person = { age: 40 }; // TypeError
+
+- If you want the value of the person object to be immutable, you have to freeze it by using the Object.freeze() method:
+    const person = Object.freeze({age: 20});
+    person.age = 30; // TypeError
+
+- Note that Object.freeze() is shallow, meaning that it can freeze the properties of the object, not the objects referenced by the properties.
+
+    const company = Object.freeze({
+        name: 'ABC corp',
+        address: {
+            street: 'North 1st street',
+            city: 'San Jose',
+            state: 'CA',
+            zipcode: 95134
+        }
+    });
+
+    company.address.country = 'USA'; // OK
+*/
+
+//const and arrays
+/*
+    const colors = ['red'];
+    colors.push('green');
+    console.log(colors); // ["red", "green"]
+
+    colors.pop();
+    colors.pop();
+    console.log(colors); // []
+
+    colors = []; // TypeError
+*/
+
+//const and for loop
+/*
+    let scores = [75, 80, 95];
+    for (const score of scores) {
+        console.log(score);
+    }
+
+    for (const i = 0; i < scores.length; i++) { // TypeError
+    console.log(scores[i]);
+}
+*/
 
 
 /* --------------------------------------- Template literals --------------------------------------- */
