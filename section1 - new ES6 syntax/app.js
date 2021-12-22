@@ -226,6 +226,26 @@ server['starting up']();
 
 
 /* --------------------------------------- Default Parameters --------------------------------------- */
+/*In JavaScript, default function parameters allow you to initialize named parameters with default values if no values or undefined are passed into the function. */
+//Example 1
+function say(message = 'Hi') {
+  console.log(message);
+}
+
+say(); // 'Hi'
+say(undefined); // 'Hi'
+say('Hello'); // 'Hello'
+
+//Example 2 
+function put(toy, toyBox = []) {
+  toyBox.push(toy);
+  return toyBox;
+}
+
+console.log(put('Toy Car'));
+// -> ['Toy Car']
+console.log(put('Teddy Bear'));
+// -> ['Teddy Bear'], not ['Toy Car','Teddy Bear']
 
 
 /* --------------------------------------- Rest Parameters --------------------------------------- */
