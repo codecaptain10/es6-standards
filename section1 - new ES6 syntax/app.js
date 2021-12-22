@@ -249,6 +249,33 @@ console.log(put('Teddy Bear'));
 
 
 /* --------------------------------------- Rest Parameters --------------------------------------- */
+/*
+ES6 provides a new kind of parameter so-called rest parameter that has a prefix of three dots (...). A rest parameter allows you to represent an indefinite number of arguments as an array.
+*/
+//Syntax
+function fn(a, b, ...args) {
+  //...
+}
+
+//Example 1
+function sum(...args) {
+  let total = 0;
+  for (const a of args) {
+    total += a;
+  }
+  return total;
+}
+
+sum(1, 2, 3);
+
+//Example 2
+const combine = (...args) => {
+  return args.reduce(function (prev, curr) {
+    return prev + " " + curr;
+  });
+};
+let message = combine("JavaScript", "Rest", "Parameters"); // =>
+console.log(message); // JavaScript Rest Parameters
 
 
 /* --------------------------------------- Spread Operator --------------------------------------- */
