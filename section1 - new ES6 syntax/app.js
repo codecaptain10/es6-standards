@@ -325,6 +325,66 @@ console.log(args); // [90, 100]
 
 
 /* --------------------------------------- for ... of loop --------------------------------------- */
+/*
+ES6 introduced a new construct for...of that creates a loop that iterates over iterable objects such as:
+  - Built-in Array, String, Map, Set, …
+  - Array-like objects such as arguments or NodeList
+  - User-defined objects that implement the iterator protocol.
+
+1) variable
+In each iteration, a property of the iterable object is assigned to the variable. You can use var, let, or const to declare the variable.
+
+2)iterable
+The iterable is an object whose iterable properties are iterated.
+ */
+
+//Syntax
+for (variable of iterable) {
+  // statements 
+}
+
+//Example 1: Iterating over arrays
+let scores = [80, 90, 70];
+
+for (let score of scores) {
+  score = score + 5;
+  console.log(score);
+}
+
+//Example 2: Iterating over arrays
+let colors = ['Red', 'Green', 'Blue'];
+
+for (const [index, color] of colors.entries()) {
+  console.log(`${color} is at index ${index}`);
+}
+
+//Example 3: In-place object destructuring with for..of 
+const ratings = [{
+    user: 'John',
+    score: 3
+  },
+  {
+    user: 'Jane',
+    score: 4
+  },
+  {
+    user: 'David',
+    score: 5
+  },
+  {
+    user: 'Peter',
+    score: 2
+  },
+];
+
+let sum = 0;
+for (const {
+    score
+  } of ratings) {
+  sum += score;
+}
+
+console.log(`Total scores: ${sum}`); // 14
 
 
 /* --------------------------------------- Octal and Binary literals --------------------------------------- */
