@@ -386,5 +386,11 @@ for (const {
 
 console.log(`Total scores: ${sum}`); // 14
 
+//Example 4: Array
+let str = 'abc';
+for (let c of str) {
+  console.log(c);
+}
+
 
 /* --------------------------------------- Octal and Binary literals --------------------------------------- */
