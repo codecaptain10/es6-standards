@@ -304,6 +304,24 @@ console.log(combined); //[ 2, 1, 3, 5, 4, 6 ]
 
 
 /* --------------------------------------- Destructuring --------------------------------------- */
+/*ES6 provides a new feature called destructing assignment that allows you to destructure properties of an object or elements of an array into individual variables. */
+
+//Arrays
+function getScores() {
+  return [70, 80, 90, 100];
+}
+
+let [x, y, z] = getScores();
+
+console.log(x); // 70
+console.log(y); // 80
+console.log(z); // 90
+
+//Array and rest parameter
+let [x, y, ...args] = getScores();
+console.log(x); // 70
+console.log(y); // 80
+console.log(args); // [90, 100]
 
 
 /* --------------------------------------- for ... of loop --------------------------------------- */
