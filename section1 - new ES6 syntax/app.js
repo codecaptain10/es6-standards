@@ -279,6 +279,28 @@ console.log(message); // JavaScript Rest Parameters
 
 
 /* --------------------------------------- Spread Operator --------------------------------------- */
+/*
+ES6 provides a new operator called spread operator that consists of three dots (...). The spread operator allows you to spread out elements of an iterable object such as an array,a  map, or a set.
+ */
+const odd = [1, 3, 5];
+const combined = [2, 4, 6, ...odd];
+console.log(combined); //[ 2, 4, 6, 1, 3, 5 ]
+
+/*So the three dots ( ...) represent both the spread operator and the rest parameter.
+
+Here are the main differences:
+  1) The spread operator unpacks elements.
+  2) The rest parameter packs elements into an array.
+  
+The rest parameters must be the last arguments of a function.  */
+
+const odd = [1, 3, 5];
+const combined = [...odd, 2, 4, 6];
+console.log(combined); // [ 1, 3, 5, 2, 4, 6 ]
+
+const odd = [1, 3, 5];
+const combined = [2, ...odd, 4, 6];
+console.log(combined); //[ 2, 1, 3, 5, 4, 6 ]
 
 
 /* --------------------------------------- Destructuring --------------------------------------- */
