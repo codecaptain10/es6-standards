@@ -1,3 +1,4 @@
+// S E C T I O N 1 : New ES6 Syntax
 /* --------------------------------------- JavaScript let --------------------------------------- */
 /*
 1) Variables are declared using the let keyword are block-scoped, are not initialized to any value, 
