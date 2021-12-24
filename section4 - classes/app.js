@@ -27,9 +27,26 @@ class Person {
     }
 }
 /*-------------------------------------------- Getters and Setters -------------------------------------------*/
+//Java, C++
+class Person {
+    constructor(name) {
+        this.setName(name);
+    }
+    getName() {
+        return this.name;
+    }
+    setName(newName) {
+        newName = newName.trim();
+        if (newName === '') {
+            throw 'The name cannot be empty';
+        }
+        this.name = newName;
+    }
+}
 /*Use the get and set keywords to define the JavaScript getters and setters for a class or an object.
   - The get keyword binds an object property to a method that will be invoked when that property is looked up.
   - The set keyword binds an object property to a method that will be invoked when that property is assigned. */
+//ES6 JavaScript
 class Person {
     constructor(name) {
         this.name = name;
