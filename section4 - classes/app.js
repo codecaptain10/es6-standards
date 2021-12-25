@@ -127,6 +127,44 @@ class Person {
     }
 }
 /*-------------------------------------------- Static Properties -------------------------------------------*/
+/*
+Like a static method, a static property is shared by all instances of a class. To define static property, you use the static keyword followed by the property name like this:
+ */
+class Item {
+    static count = 0;
+    static getCount() {
+        return Item.count;
+    }
+}
+console.log(Item.getCount()); // 0
+
+
+/*
+- A static property of a class is shared by all instances of that class.
+- Use the static keyword to define a static property.
+- Use the className.staticPropertyName to access the static property in a static method.
+- Use the this.constructor.staticPropertyName or className.staticPropertyName to access the static property in a constructor.
+
+ */
+//Example
+class Item {
+    constructor(name, quantity) {
+        this.name = name;
+        this.quantity = quantity;
+        this.constructor.count++;
+    }
+    static count = 0;
+    static getCount() {
+        return Item.count++;
+    }
+}
+
+let pen = new Item("Pen", 5);
+let notebook = new Item("notebook", 10);
+
+console.log(Item.getCount()); // 2
+
+
 /*-------------------------------------------- Computed property -------------------------------------------*/
 /*-------------------------------------------- Inheritance -------------------------------------------*/
 /*-------------------------------------------- new.target -------------------------------------------*/
