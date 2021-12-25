@@ -109,6 +109,23 @@ let app = new class {
 
 app.start(); // Starting the Awesome App...
 /*-------------------------------------------- Static methods -------------------------------------------*/
+/*
+- JavaScript static methods are shared among instances of a class. Thus, they are associated with the class, not any particular instance of that class.
+- The static methods are called via the class name, not the instances of the class.
+- Use the className.staticMethodName() or this.constructor.staticMethodName() to call a static method in a class constructor or an instance method.
+ */
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+    static createAnonymous(gender) {
+        let name = gender == "male" ? "John Doe" : "Jane Doe";
+        return new Person(name);
+    }
+}
 /*-------------------------------------------- Static Properties -------------------------------------------*/
 /*-------------------------------------------- Computed property -------------------------------------------*/
 /*-------------------------------------------- Inheritance -------------------------------------------*/
