@@ -63,6 +63,51 @@ class Person {
     }
 }
 /*-------------------------------------------- Class Expression -------------------------------------------*/
+/*
+- Similar to functions, classes have expression forms. A class expression provides you with an alternative way to define a new class.
+- A class expression doesn’t require an identifier after the class keyword. And you can use a class expression in a variable declaration and pass it into a function as an argument.
+ */
+let Person = class {
+    constructor(name) {
+        this.name = name;
+    }
+    getName() {
+        return this.name;
+    }
+}
+
+//First-class citizen
+/*
+JavaScript classes are first-class citizens. It means that you can pass a class into a function, return it from a function, and assign it to a variable.
+ */
+function factory(aClass) {
+    return new aClass();
+}
+
+let greeting = factory(class {
+    sayHi() {
+        console.log('Hi');
+    }
+});
+
+greeting.sayHi(); // 'Hi'
+
+
+//Singleton
+/*
+- Singleton is a design pattern that limits the instantiation of a class to a single instance. It ensures that only one instance of a class can be created throughout the system.
+- Class expressions can be used to create a singleton by calling the class constructor immediately. 
+*/
+let app = new class {
+    constructor(name) {
+        this.name = name;
+    }
+    start() {
+        console.log(`Starting the ${this.name}...`);
+    }
+}('Awesome App');
+
+app.start(); // Starting the Awesome App...
 /*-------------------------------------------- Static methods -------------------------------------------*/
 /*-------------------------------------------- Static Properties -------------------------------------------*/
 /*-------------------------------------------- Computed property -------------------------------------------*/
