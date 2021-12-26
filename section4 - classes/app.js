@@ -167,6 +167,11 @@ console.log(Item.getCount()); // 2
 
 /*-------------------------------------------- Computed property -------------------------------------------*/
 /*
+- Use the extends keyword to implement the inheritance in ES6. The class to be extended is called a base class or parent class. The class that extends the base class or parent class is called the derived class or child class.
+- Call the super(arguments) in the child class’s constructor to invoke the parent class’s constructor.
+- Use super keyword to call methods of the parent class in the methods of the child class.
+ */
+/*
 ES6 allows you to use an expression in brackets []. It’ll then use the result of the expression as the property name of an object.
 */
 //Example 1
@@ -197,4 +202,110 @@ class Person {
 let person = new Person('John', 'Doe');
 console.log(person.fullName); // John Doe
 /*-------------------------------------------- Inheritance -------------------------------------------*/
+/*
+- Prior to ES6, implementing a proper inheritance required multiple steps. One of the most commonly used strategies is the prototypal inheritance. 
+- ES6 simplified these steps by using the extends and super keywords.
+ */
+//Example 1
+/*
+- The following example defines the Animal and Bird classes and establishes the inheritance through the extends and super keywords.
+- JavaScript requires the child class to call super() if it has a constructor. As you can see in the Bird class, the super(legs) is equivalent to the following statement in ES5
+ */
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+    walk() {
+        console.log('walking on ' + this.legs + ' legs');
+    }
+}
+
+class Bird extends Animal {
+    constructor(legs) {
+        super(legs);
+    }
+    fly() {
+        console.log('flying');
+    }
+}
+
+
+let bird = new Bird(2);
+
+bird.walk();
+bird.fly();
+
+//Shadowing methods - Methods with the same name
+/*
+ES6 allows the child class and parent class to have methods with the same name. In this case, when you call the method of an object of the child class, the method in the child class will shadow the method in the parent class.
+ */
+class Dog extends Animal {
+    constructor() {
+        super(4);
+    }
+    walk() {
+        super.walk();
+        console.log(`go walking`);
+    }
+}
+
+let bingo = new Dog();
+bingo.walk();
+// walking on 4 legs
+// go walking
+
+
+//Inheriting static members
+/*
+Besides the properties and methods, the child class also inherits all static properties and methods of the parent class.
+ */
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+    walk() {
+        console.log('walking on ' + this.legs + ' legs');
+    }
+    static helloWorld() {
+        console.log('Hello World');
+    }
+}
+
+class Bird extends Animal {
+    fly() {
+        console.log('flying');
+    }
+}
+
+
+//Inheriting from built-in types
+/*
+JavaScript allows you to extend a built-in type such as Array, String, Map, and Set through inheritance.
+*/
+class Queue extends Array {
+    enqueue(e) {
+        super.push(e);
+    }
+    dequeue() {
+        return super.shift();
+    }
+    peek() {
+        return !this.empty() ? this[0] : undefined;
+    }
+    empty() {
+        return this.length === 0;
+    }
+}
+
+var customers = new Queue();
+customers.enqueue('A');
+customers.enqueue('B');
+customers.enqueue('C');
+
+while (!customers.empty()) {
+    console.log(customers.dequeue());
+}
+
+
+
 /*-------------------------------------------- new.target -------------------------------------------*/
