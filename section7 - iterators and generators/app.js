@@ -69,5 +69,26 @@ class Sequence {
             }
         }
 };
+
+
 /*------------------------------------- Generators ------------------------------------------- */
+/*
+- Generators are created by the generator function function* f(){}.
+- Generators do not execute its body immediately when they are invoked.
+- Generators can pause midway and resumes their executions where they were paused. The yield statement pauses the execution of a generator and returns a value.
+- Generators are iterable so you can use them with the for...of loop.
+
+ES6 introduces a new kind of function that is different from a regular function: function generator or generator.
+
+A generator can pause midway and then continues from where it paused.
+ */
+function* generate() {
+    console.log('invoked 1st time');
+    yield 1;
+    console.log('invoked 2nd time');
+    yield 2;
+}
+
+let result = gen.next();
+console.log(result);
 /*------------------------------------- yield ------------------------------------------- */
