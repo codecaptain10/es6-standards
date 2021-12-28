@@ -92,3 +92,18 @@ function* generate() {
 let result = gen.next();
 console.log(result);
 /*------------------------------------- yield ------------------------------------------- */
+/*
+The yield keyword allows you to pause and resume a generator function (function*).
+
+The following shows the syntax of the yield keyword: [variable_name] = yield [expression];
+ */
+//Example: The following trivial example illustrates how to use the yield keyword to return a value from a generator function:
+function* foo() {
+    yield 1;
+    yield 2;
+    yield 3;
+}
+
+let f = foo();
+
+console.log(f.next());
